@@ -1,0 +1,34 @@
+@import "_vars";
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('#{$font-path}/Roboto.woff2') format('woff2'),
+         url('#{$font-path}/Roboto.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('#{$font-path}/Roboto-Medium.woff2') format('woff2'),
+         url('#{$font-path}/Roboto-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik Regular';
+    src: url('#{$font-path}/rubik-regular-webfont.woff2') format('woff2'),
+         url('#{$font-path}/rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik Medium';
+    src: url('#{$font-path}/Rubik-Medium.woff2') format('woff2'),
+         url('#{$font-path}/Rubik-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
