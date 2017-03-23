@@ -1,13 +1,22 @@
 // colors
-$white: #ffffff;
-$black: #000000;
-$menu-header-bg: #373c47;
-$menu-header-text: #fefefe;
-$menu-main-bg: #2d323e;
-$menu-items-text: #bdbec2;
-$menu-hover-item-bg: #292d38;
+$white:               #ffffff;
+$black:               #000000;
+$menu-header-bg:      #373c47;
+$menu-header-text:    #fefefe;
+$menu-main-bg:        #2d323e;
+$menu-items-text:     #bdbec2;
+$menu-hover-item-bg:  #292d38;
+$top-bar-icons-color: #5e6a80;
+$main-content-scroll: #b0b5bc;
+$main-content-bg:     #f2f5f9;
+$scroll-track-bg: #d9dce3;
+$scroll-thumb-bg: #b0b5bc;
+
 // paths
 $font-path: "../fonts";
 $images-path: "../img";
  // fonts
 $default-fonts: Arial, sans-serif;
+// values
+$top-bar-height: 67px;
+$main-menu-width: 255px;

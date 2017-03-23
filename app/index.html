@@ -24,42 +24,82 @@
 <body>
 
     <div class="app">
-        <nav class="main-menu app__menu">
+        <nav class="main-menu">
             <div class="main-menu__header">
                 <h4 class="main-menu__header-text">To Do</h4>
-                <div class="main-menu__func-btn">
+                <a class="main-menu__func-btn" href="#">
                     <span class="mdi mdi-backburger"></span>
-                </div>
+                </a>
             </div>
             <ul class="main-menu__list">
                 <li class="main-menu__list-item">
                     <a href="#" class="main-menu__item-link">
-                        <span class="mdi mdi-view-dashboard main-menu__item-icon"></span>Project 1
+                        <span class="mdi mdi-view-dashboard main-menu__item-icon"></span>
+                        <p class="main-menu__item-text">Project 1</p>
                     </a>
                 </li>
                 <li class="main-menu__list-item">
                     <a href="#" class="main-menu__item-link">
-                        <span class="mdi mdi-account-multiple main-menu__item-icon"></span>Project 2
+                        <span class="mdi mdi-account-multiple main-menu__item-icon"></span>
+                        <p class="main-menu__item-text">Project 2</p>
                     </a>
                 </li>
                 <li class="main-menu__list-item">
                     <a href="#" class="main-menu__item-link">
-                        <span class="mdi mdi-folder main-menu__item-icon"></span>Project 3
+                        <span class="mdi mdi-folder main-menu__item-icon"></span>
+                        <p class="main-menu__item-text">Project 3</p>
                     </a>
                 </li>
                 <li class="main-menu__list-item">
                     <a href="#" class="main-menu__item-link">
-                        <span class="mdi mdi-account-box-outline main-menu__item-icon"></span>Project 4
+                        <span class="mdi mdi-account-box-outline main-menu__item-icon"></span>
+                        <p class="main-menu__item-text">Project 4</p>
                     </a>
                 </li>
                 <li class="main-menu__list-item">
                     <a href="#" class="main-menu__item-link">
-                        <span class="mdi mdi-file-document main-menu__item-icon"></span>Project 5
+                        <span class="mdi mdi-file-document main-menu__item-icon"></span>
+                        <p class="main-menu__item-text">Project 5</p>
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="main-content app__content"></div>
+        <div class="main-content">
+            <div class="main-content__top-bar">
+                <div class="search">
+                    <input type="text" class="search__input" placeholder="Search...">
+                </div>
+                <div class="notific">
+                    <a href="#" class="notific__link">
+                        <span class="mdi mdi-bell"></span>
+                        <span class="notific__counter">2</span>
+                    </a>
+                </div>
+                <a class="profile-link" href="#">
+                    <img src="img/profile-img.jpg" class="profile-link__image">
+                    <span class="mdi mdi-chevron-down"></span>
+                </a>
+            </div>
+            <div class="main-content__content">
+                <main class="main-content__wrap">
+                    <div class="task">
+                        <div class="task__content">
+
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task__content">
+
+                        </div>
+                    </div>
+                    <!--<div class="task main-content__item"></div>
+                    <div class="task main-content__item"></div>
+                    <div class="task main-content__item"></div>
+                    <div class="task main-content__item"></div>
+                    <div class="task main-content__item"></div>-->
+                </main>
+            </div>
+        </div>
     </div>
 
     <!-- afterdocument:js -->

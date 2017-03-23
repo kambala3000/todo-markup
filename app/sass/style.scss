@@ -25,7 +25,10 @@ ul {
 }
 
 body {
+    width: 100%;
+    height: 100%;
     background-color: #fff;
+    overflow: hidden;
 }
 
 @mixin clearfix() {
@@ -46,19 +49,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    &__menu {}
-    &__content {}
 }
 
+
+/* MAIN-MENU STYLES */
+
 .main-menu {
-    width: 255px;
-    height: 100vh;
+    min-width: $main-menu-width;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background-color: $menu-main-bg;
     &__header {
-        height: 67px;
+        height: $top-bar-height;
         padding: 0 20px;
         display: flex;
         flex-direction: row;
@@ -66,12 +69,14 @@ body {
         align-items: center;
         border-bottom: 1px solid $menu-hover-item-bg;
         background-color: $menu-header-bg;
-        color: $menu-header-text;
     }
     &__header-text {
         font: 16px/1.4 'Roboto Medium', $default-fonts;
+        color: $menu-header-text;
     }
     &__func-btn {
+        text-decoration: none;
+        color: $menu-header-text;
         font-size: 22px;
     }
     &__func-btn:hover {
@@ -84,7 +89,6 @@ body {
     }
     &__list-item {
         display: block;
-        padding: 0 25px;
         cursor: pointer;
     }
     &__list-item:hover {
@@ -98,8 +102,168 @@ body {
         display: flex;
         align-items: center;
         height: 48px;
+        padding: 0 25px;
         font: 14px 'Roboto Medium', $default-fonts;
         text-decoration: none;
         color: $menu-items-text;
+    }
+    &__item-text {}
+}
+
+
+/* MAIN-CONTENT STYLES */
+
+.btn {
+    display: block;
+    padding: 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background-color: $white;
+    /* &--search {
+        padding: 0 10px;
+        font-size: 21px;
+        color: $top-bar-icons-color;
+    }
+    &--search:hover {
+        color: #292d38;
+    } */
+}
+
+.main-content {
+    width: calc(100vw - #{$main-menu-width});
+    &__top-bar {
+        height: $top-bar-height;
+        padding: 13px 70px 13px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: $white;
+        border-bottom: 1px solid #d9dce3;
+        box-shadow: 3px 1px 5px 0px rgba(217, 220, 227, 1);
+    }
+    &__content {
+        height: calc(100vh - #{$top-bar-height});
+        background-color: $main-content-bg;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    &__wrap {
+        height: 100%;
+        white-space: nowrap;
+        padding: 0 0 0 15px;
+        font-size: 0px;
+    }
+}
+
+.search {
+    height: 40px;
+    position: relative;
+    &__input {
+        display: block;
+        width: 285px;
+        height: 40px;
+        padding: 0 40px 0 15px;
+        margin: 0;
+        border: none;
+        outline: none;
+        font: 14px/40px 'Roboto Regular', $default-fonts;
+        color: #919cb1;
+        border: 1px solid $main-content-scroll;
+        border-radius: 2px;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+    &__input:focus {
+        border-color: #74a6fa;
+        box-shadow: 0px 1px 21px -6px rgba(116, 166, 250, 1);
+    }
+    &:after {
+        content: '\F349';
+        display: block;
+        padding: 0 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font: normal normal normal 24px/40px "Material Design Icons";
+        cursor: pointer;
+        color: $top-bar-icons-color;
+    }
+}
+
+.notific {
+    display: block;
+    width: 75px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &__link {
+        padding: 5px 10px;
+        position: relative;
+        font-size: 24px;
+        color: $top-bar-icons-color;
+        cursor: pointer;
+    }
+    &__counter {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        background-color: #e2715c;
+        font: 10px/14px 'Roboto Medium', $default-fonts;
+        text-align: center;
+        color: $white;
+        border-radius: 3px;
+    }
+}
+
+.profile-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: $top-bar-icons-color;
+    &__image {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    &:hover {
+        color: $black;
+    }
+}
+
+
+/* TASK STYLES */
+
+.task {
+    width: 272px;
+    max-height: calc(100vh - #{$top-bar-height});
+    margin: 0 15px;
+    padding: 30px 0 0 0;
+    display: inline-block;
+    outline: 1px solid gray;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color: $scroll-track-bg;
+    }
+    &::-webkit-scrollbar-thumb:vertical {
+        background-color: $scroll-thumb-bg;
+    }
+    &:hover {
+        overflow-y: auto;
+    }
+    &__content {
+        width: 262px;
+        height: 800px;
+        outline: 1px solid red;
     }
 }
