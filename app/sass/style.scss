@@ -39,10 +39,67 @@ body {
     }
 }
 
+
 /* APP STYLES */
 
 .app {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    &__menu {}
+    &__content {}
+}
+
+.main-menu {
+    width: 255px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: $menu-main-bg;
+    &__header {
+        height: 67px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $menu-hover-item-bg;
+        background-color: $menu-header-bg;
+        color: $menu-header-text;
+    }
+    &__header-text {
+        font: 16px/1.4 'Roboto Medium', $default-fonts;
+    }
+    &__func-btn {
+        font-size: 22px;
+    }
+    &__func-btn:hover {
+        color: $menu-items-text;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    &__list-item {
+        display: block;
+        padding: 0 25px;
+        cursor: pointer;
+    }
+    &__list-item:hover {
+        background-color: $menu-hover-item-bg;
+    }
+    &__item-icon {
+        margin-right: 25px;
+        font-size: 22px;
+    }
+    &__item-link {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        font: 14px 'Roboto Medium', $default-fonts;
+        text-decoration: none;
+        color: $menu-items-text;
+    }
 }

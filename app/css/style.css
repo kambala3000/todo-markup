@@ -54,6 +54,74 @@ body {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+
+.main-menu {
+  width: 255px;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #2d323e; }
+  .main-menu__header {
+    height: 67px;
+    padding: 0 20px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid #292d38;
+    background-color: #373c47;
+    color: #fefefe; }
+  .main-menu__header-text {
+    font: 16px/1.4 "Roboto Medium", Arial, sans-serif; }
+  .main-menu__func-btn {
+    font-size: 22px; }
+  .main-menu__func-btn:hover {
+    color: #bdbec2; }
+  .main-menu__list {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+  .main-menu__list-item {
+    display: block;
+    padding: 0 25px;
+    cursor: pointer; }
+  .main-menu__list-item:hover {
+    background-color: #292d38; }
+  .main-menu__item-icon {
+    margin-right: 25px;
+    font-size: 22px; }
+  .main-menu__item-link {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 48px;
+    font: 14px "Roboto Medium", Arial, sans-serif;
+    text-decoration: none;
+    color: #bdbec2; }
