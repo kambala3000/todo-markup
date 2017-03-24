@@ -1,4 +1,4 @@
-@import "_vars";
+        @import "_vars";
 @import "_fonts";
 html {
     box-sizing: border-box;
@@ -149,13 +149,27 @@ body {
         overflow-x: auto;
         overflow-y: hidden;
     }
+    &__content::-webkit-scrollbar {
+        height: 12px;
+    }
+    &__content::-webkit-scrollbar-track-piece {
+        background-color: $scroll-track-bg;
+    }
+    &__content::-webkit-scrollbar-thumb:horizontal {
+        background-color: $scroll-thumb-bg;
+    }
     &__wrap {
         height: 100%;
-        white-space: nowrap;
-        padding: 0 0 0 15px;
-        font-size: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0 0 0 20px;
     }
 }
+
+
+/* TOP-BAR STYLES */
 
 .search {
     height: 40px;
@@ -243,12 +257,12 @@ body {
 .task {
     width: 272px;
     max-height: calc(100vh - #{$top-bar-height});
-    margin: 0 15px;
+    margin: 0 10px;
     padding: 30px 0 0 0;
-    display: inline-block;
-    outline: 1px solid gray;
+    flex-shrink: 0;
+    font-size: 14px;
     overflow-y: hidden;
-    overflow-x: hidden;
+    overflow-x: hidden; // outline: 1px solid grey;
     &::-webkit-scrollbar {
         width: 10px;
     }
@@ -263,7 +277,260 @@ body {
     }
     &__content {
         width: 262px;
-        height: 800px;
-        outline: 1px solid red;
+    }
+    &__header {
+        height: 50px;
+        padding: 0 12px 0 18px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $task-header-bg;
+    }
+    &__header-text {
+        font: 12px 'Rubik Medium', $default-fonts;
+        text-transform: uppercase;
+        color: $white;
+    }
+    &__controls-item {
+        color: $white;
+        font-size: 18px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &__input-box {
+        height: 45px;
+        padding: 0 13px 0 18px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid $task-blue;
+    }
+    &__input {
+        display: block;
+        width: 185px;
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        border: none;
+        background-color: transparent;
+        font: 14px 'Roboto Medium', $default-fonts;
+        color: #424a59;
+    }
+    &__input-controls-box {
+        opacity: 0;
+        transition: opacity .2s linear;
+    }
+    &__input:focus+&__input-controls-box {
+        opacity: 1;
+    }
+    &__input-controls {
+        margin-right: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    &__input-controls:last-child {
+        margin-right: 0;
+    }
+    &__input-controls--chek {
+        color: $task-green;
+    }
+    &__input-controls--cancel {
+        color: $task-red;
+    }
+    &__input-icons:before {
+        font-weight: bold;
+    }
+}
+
+
+/* CARD STYLES */
+
+.card {
+    margin-bottom: 10px;
+    border: 1px solid $card-border-color;
+    box-shadow: 0px 7px 6px -9px rgba(176, 181, 188, 1);
+    &__body {
+        padding: 15px 15px 10px 15px;
+    }
+    &__lines {
+        margin-bottom: 7px;
+        font-size: 0;
+    }
+    &__color-line {
+        display: inline-block;
+        width: 40px;
+        height: 4px;
+        margin: 0 8px 0 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        border-radius: 4px;
+    }
+    &__color-line--red {
+        background-color: $task-red;
+    }
+    &__color-line--yellow {
+        background-color: $task-yellow;
+    }
+    &__color-line--green {
+        background-color: $task-green;
+    }
+    &__color-line--blue {
+        background-color: $task-blue;
+    }
+    &__name {
+        margin-bottom: 9px;
+        font: 16px 'Roboto Medium', $default-fonts;
+        color: $card-primary-text;
+    }
+    &__members {
+        margin-bottom: 10px;
+        padding-right: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0;
+    }
+    &__member-link {
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    &__member-link:last-child {
+        margin-right: 0;
+    }
+    &__member-link--leader {
+        margin-right: 25px;
+    }
+    &__member-img {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+    &__members-counter {
+        width: 32px;
+        border: 1px solid $task-green;
+        border-radius: 15px;
+        text-decoration: none;
+        font: 12px/1.4 'Roboto Medium', $default-fonts;
+        color: $task-green;
+        text-align: center;
+        cursor: pointer;
+    }
+    &__progress {
+        padding-right: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__progressbar {
+        display: block;
+        width: 185px;
+        height: 4px;
+        border: none;
+        overflow: hidden;
+        border-radius: 4px;
+        background: $card-progressbar-bg;
+    }
+    &__progressbar::-webkit-progress-bar {
+        background: $card-progressbar-bg;
+    }
+    &__progressbar::-moz-progress-bar {
+        background: $task-green;
+    }
+    &__progressbar::-webkit-progress-value {
+        background: $task-green;
+        border-radius: 4px;
+    }
+    &__progress-counter {
+        font: 12px 'Roboto Medium', $default-fonts;
+        color: $card-secondary-text;
+    }
+    &__progress-done {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: $white;
+        background-color: $task-green;
+    }
+    &__progress-done:before {
+        font-weight: bold;
+    }
+    &__checklist {
+        padding-top: 5px;
+    }
+    &__checklist-item {
+        margin-bottom: 10px;
+    }
+    &__checklist-item:last-child {
+        margin-bottom: 0;
+    }
+    &__checklist-checkbox {
+        display: none;
+    }
+    &__checklist-label {
+        display: inline-block;
+        padding-left: 25px;
+        position: relative;
+        font: 14px 'Roboto Regular', $default-fonts;
+        color: $card-primary-text;
+        cursor: pointer;
+    }
+    &__checklist-label:before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font: normal normal bold 12px/14px "Material Design Icons";
+        border: 1px solid #d0d4dd;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    &__checklist-checkbox:checked + &__checklist-label:before {
+        content: "\F12C";
+        color: $white;
+        border-color: transparent;
+        background-color: $task-green;
+        
+    }
+    &__footer {
+        padding: 18px 15px 20px 15px;
+        border-top: 1px solid $card-border-color;
+    }
+    &__footer-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+    &__footer-icon {
+        margin-right: 7px;
+        font-size: 18px;
+    }
+    &__footer-icon--comment {
+        color: $task-blue;
+    }
+    &__footer-icon--attachment {
+        color: $task-red;
+    }
+    &__footer-text {
+        font: 12px 'Roboto Medium', $default-fonts;
+        color: $card-secondary-text;   
     }
 }
