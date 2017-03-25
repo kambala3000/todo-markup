@@ -1,4 +1,4 @@
-        @import "_vars";
+@import "_vars";
 @import "_fonts";
 html {
     box-sizing: border-box;
@@ -67,9 +67,7 @@ body {
     transition: min-width .3s ease;
     @media only screen and (max-width: 1440px) {
         min-width: $main-menu-width-short;
-        @media (max-width: 1024px) {
-            
-        }
+        @media (max-width: 1024px) {}
     }
     &__header {
         height: $top-bar-height;
@@ -85,6 +83,7 @@ body {
             @media (max-width: 1024px) {
                 flex-direction: row;
                 justify-content: space-between;
+                border-bottom: none;
                 background-color: $menu-main-bg;
             }
         }
@@ -132,7 +131,9 @@ body {
         @media only screen and (max-width: 1440px) {
             display: none;
             @media (max-width: 1024px) {
-                display: none;
+                display: block;
+                margin-right: 20px;
+                color: $menu-items-text;
             }
         }
     }
@@ -141,7 +142,7 @@ body {
         @media only screen and (max-width: 1440px) {
             display: block;
             @media (max-width: 1024px) {
-                display: block;
+                display: none;
                 margin-right: 20px;
                 color: $menu-items-text;
             }
@@ -158,15 +159,24 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         @media only screen and (max-width: 1024px) {
-            display: none;
+            flex-direction: row;
+            padding-left: 55px;
         }
     }
     &__list-item {
         display: block;
         cursor: pointer;
+        @media only screen and (max-width: 1024px) {
+            flex-shrink: 0;
+            border-bottom: 2px solid transparent;
+        }
     }
     &__list-item:hover {
         background-color: $menu-hover-item-bg;
+        @media only screen and (max-width: 1024px) {
+            background-color: inherit;
+            border-bottom: 2px solid $menu-hover-item-border;
+        }
     }
     &__item-icon {
         margin-right: 25px;
@@ -174,7 +184,7 @@ body {
         @media only screen and (max-width: 1440px) {
             margin-right: 0;
             @media (max-width: 1024px) {
-                
+                display: none;
             }
         }
     }
@@ -190,15 +200,22 @@ body {
             padding: 0;
             justify-content: center;
             @media (max-width: 1024px) {
-                
+                padding: 0 10px;
+                color: $top-bar-icons-color;
             }
+        }
+    }
+    &__item-link:hover {
+        @media only screen and (max-width: 1024px) {
+            color: $menu-items-text;
         }
     }
     &__item-text {
         @media only screen and (max-width: 1440px) {
             display: none;
             @media (max-width: 1024px) {
-                
+                display: block;
+                text-transform: uppercase;
             }
         }
     }
@@ -230,7 +247,7 @@ body {
     @media only screen and (max-width: 1440px) {
         width: calc(100vw - #{$main-menu-width-short});
         @media (max-width: 1024px) {
-            width: 100vw;
+            width: 100%;
         }
     }
     &__top-bar {
@@ -257,9 +274,6 @@ body {
         color: $card-primary-text;
         @media only screen and (max-width: 1440px) {
             display: block;
-            @media (max-width: 1024px) {
-                
-            }
         }
     }
     &__top-bar-wrap {
@@ -272,7 +286,14 @@ body {
         background-color: $main-content-bg;
         overflow-x: auto;
         overflow-y: hidden;
-        box-shadow: inset 0px 2px 26px -9px rgba(94,106,128,1);
+        @media only screen and (max-width: 1024px) {
+            height: 100%;
+            overflow-y: auto;
+            box-shadow: inset 0px 7px 15px -9px rgba(94, 106, 128, 1);
+            @media (max-width: 620px) {
+                background-color: $content-bg-mobile;
+            }
+        }
     }
     &__content::-webkit-scrollbar {
         height: 12px;
@@ -295,6 +316,14 @@ body {
             padding-left: 60px;
             @media (max-width: 1024px) {
                 padding-left: 0;
+                justify-content: center;
+                flex-wrap: wrap;
+                @media (max-width: 620px) {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                }
             }
         }
     }
@@ -390,11 +419,24 @@ body {
     width: 272px;
     max-height: calc(100vh - #{$top-bar-height});
     margin: 0 10px;
-    padding: 30px 0 0 0;
+    padding-top: 30px;
     flex-shrink: 0;
     font-size: 14px;
     overflow-y: hidden;
-    overflow-x: hidden; // outline: 1px solid grey;
+    overflow-x: hidden;
+    @media only screen and (max-width: 1024px) {
+        max-height: 100%;
+        @media (max-width: 620px) {
+            width: 100%;
+            padding-top: 0;
+            margin: 0;
+        }
+    }
+    &:first-child {
+        @media only screen and (max-width: 620px) {
+            padding-top: 30px;
+        }
+    }
     &::-webkit-scrollbar {
         width: 10px;
     }
@@ -409,27 +451,41 @@ body {
     }
     &__content {
         width: 262px;
+        @media only screen and (max-width: 620px) {
+            width: 100%;
+        }
     }
     &__header {
         height: 50px;
-        padding: 0 12px 0 18px;
+        padding: 0 12px 0 25px;
         margin-bottom: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         background-color: $task-header-bg;
+        @media only screen and (max-width: 620px) {
+            background-color: $content-bg-mobile;
+            padding-right: 20px;
+        }
     }
     &__header-text {
         font: 12px 'Rubik Medium', $default-fonts;
         text-transform: uppercase;
         color: $white;
+        @media only screen and (max-width: 620px) {
+            font: 16px 'Roboto Medium', $default-fonts;
+            color: $card-primary-text;
+        }
     }
     &__controls-item {
         color: $white;
         font-size: 18px;
         text-decoration: none;
         cursor: pointer;
+        @media only screen and (max-width: 620px) {
+            color: $card-primary-text;
+        }
     }
     &__input-box {
         height: 45px;
@@ -440,10 +496,15 @@ body {
         justify-content: space-between;
         align-items: center;
         border: 1px solid $task-blue;
+        @media only screen and (max-width: 620px) {
+            padding-right: 23px;
+            padding-left: 25px;
+            background-color: $white;
+        }
     }
     &__input {
         display: block;
-        width: 185px;
+        width: 80%;
         padding: 0;
         margin: 0;
         outline: 0;
@@ -451,6 +512,9 @@ body {
         background-color: transparent;
         font: 14px 'Roboto Medium', $default-fonts;
         color: #424a59;
+        @media only screen and (max-width: 620px) {
+            width: 85%;
+        }
     }
     &__input-controls-box {
         opacity: 0;
@@ -486,8 +550,15 @@ body {
     margin-bottom: 10px;
     border: 1px solid $card-border-color;
     box-shadow: 0px 7px 6px -9px rgba(176, 181, 188, 1);
+    @media only screen and (max-width: 620px) {
+        background-color: $white;
+    }
     &__body {
         padding: 15px 15px 10px 15px;
+        @media only screen and (max-width: 620px) {
+            padding-right: 25px;
+            padding-left: 25px;
+        }
     }
     &__lines {
         margin-bottom: 7px;
@@ -561,6 +632,14 @@ body {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        @media only screen and (max-width: 620px) {
+            padding-bottom: 5px;
+        }
+    }
+    &__progress:last-child {
+        @media only screen and (max-width: 620px) {
+            padding-bottom: 0;
+        }
     }
     &__progressbar {
         display: block;
@@ -633,16 +712,18 @@ body {
         border-radius: 2px;
         cursor: pointer;
     }
-    &__checklist-checkbox:checked + &__checklist-label:before {
+    &__checklist-checkbox:checked+&__checklist-label:before {
         content: "\F12C";
         color: $white;
         border-color: transparent;
         background-color: $task-green;
-        
     }
     &__footer {
         padding: 18px 15px 20px 15px;
         border-top: 1px solid $card-border-color;
+        @media only screen and (max-width: 620px) {
+            padding-left: 30px;
+        }
     }
     &__footer-item {
         display: inline-flex;
@@ -663,6 +744,6 @@ body {
     }
     &__footer-text {
         font: 12px 'Roboto Medium', $default-fonts;
-        color: $card-secondary-text;   
+        color: $card-secondary-text;
     }
 }
