@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #fff;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @mixin clearfix() {
@@ -49,6 +49,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 }
 
 
@@ -60,32 +64,102 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     background-color: $menu-main-bg;
+    transition: min-width .3s ease;
+    @media only screen and (max-width: 1440px) {
+        min-width: $main-menu-width-short;
+        @media (max-width: 1024px) {
+            
+        }
+    }
     &__header {
         height: $top-bar-height;
         padding: 0 20px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid $menu-hover-item-bg;
+        background-color: $menu-header-bg;
+        @media only screen and (max-width: 1440px) {
+            padding: 0;
+            justify-content: center;
+            @media (max-width: 1024px) {
+                flex-direction: row;
+                justify-content: space-between;
+                background-color: $menu-main-bg;
+            }
+        }
+    }
+    &__header-wrap {
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid $menu-hover-item-bg;
-        background-color: $menu-header-bg;
+        @media only screen and (max-width: 1440px) {
+            justify-content: center;
+            @media (max-width: 1024px) {
+                flex-direction: row-reverse;
+                padding-left: 20px;
+            }
+        }
+    }
+    &__mobile-features {
+        display: none;
+        @media only screen and (max-width: 1024px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
     &__header-text {
         font: 16px/1.4 'Roboto Medium', $default-fonts;
         color: $menu-header-text;
+        @media only screen and (max-width: 1440px) {
+            display: none;
+            @media (max-width: 1024px) {
+                display: block;
+                color: $menu-items-text;
+            }
+        }
     }
     &__func-btn {
         text-decoration: none;
         color: $menu-header-text;
         font-size: 22px;
     }
+    &__func-btn--hide {
+        display: block;
+        @media only screen and (max-width: 1440px) {
+            display: none;
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+    }
+    &__func-btn--show {
+        display: none;
+        @media only screen and (max-width: 1440px) {
+            display: block;
+            @media (max-width: 1024px) {
+                display: block;
+                margin-right: 20px;
+                color: $menu-items-text;
+            }
+        }
+    }
     &__func-btn:hover {
         color: $menu-items-text;
+        @media only screen and (max-width: 1024px) {
+            color: $menu-header-text;
+        }
     }
     &__list {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        @media only screen and (max-width: 1024px) {
+            display: none;
+        }
     }
     &__list-item {
         display: block;
@@ -97,6 +171,12 @@ body {
     &__item-icon {
         margin-right: 25px;
         font-size: 22px;
+        @media only screen and (max-width: 1440px) {
+            margin-right: 0;
+            @media (max-width: 1024px) {
+                
+            }
+        }
     }
     &__item-link {
         display: flex;
@@ -106,8 +186,22 @@ body {
         font: 14px 'Roboto Medium', $default-fonts;
         text-decoration: none;
         color: $menu-items-text;
+        @media only screen and (max-width: 1440px) {
+            padding: 0;
+            justify-content: center;
+            @media (max-width: 1024px) {
+                
+            }
+        }
     }
-    &__item-text {}
+    &__item-text {
+        @media only screen and (max-width: 1440px) {
+            display: none;
+            @media (max-width: 1024px) {
+                
+            }
+        }
+    }
 }
 
 
@@ -120,19 +214,25 @@ body {
     border: none;
     cursor: pointer;
     text-align: center;
-    background-color: $white;
-    /* &--search {
-        padding: 0 10px;
-        font-size: 21px;
+    background-color: inherit;
+    &--search {
+        margin-top: 3px;
+        font-size: 23px;
         color: $top-bar-icons-color;
     }
     &--search:hover {
-        color: #292d38;
-    } */
+        color: $menu-items-text;
+    }
 }
 
 .main-content {
     width: calc(100vw - #{$main-menu-width});
+    @media only screen and (max-width: 1440px) {
+        width: calc(100vw - #{$main-menu-width-short});
+        @media (max-width: 1024px) {
+            width: 100vw;
+        }
+    }
     &__top-bar {
         height: $top-bar-height;
         padding: 13px 70px 13px 0;
@@ -142,12 +242,37 @@ body {
         background-color: $white;
         border-bottom: 1px solid #d9dce3;
         box-shadow: 3px 1px 5px 0px rgba(217, 220, 227, 1);
+        transition: padding-left .3s ease;
+        @media only screen and (max-width: 1440px) {
+            justify-content: space-between;
+            padding-left: 70px;
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+    }
+    &__top-bar-text {
+        display: none;
+        font: 16px/40px 'Roboto Medium', $default-fonts;
+        color: $card-primary-text;
+        @media only screen and (max-width: 1440px) {
+            display: block;
+            @media (max-width: 1024px) {
+                
+            }
+        }
+    }
+    &__top-bar-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
     &__content {
         height: calc(100vh - #{$top-bar-height});
         background-color: $main-content-bg;
         overflow-x: auto;
         overflow-y: hidden;
+        box-shadow: inset 0px 2px 26px -9px rgba(94,106,128,1);
     }
     &__content::-webkit-scrollbar {
         height: 12px;
@@ -165,6 +290,13 @@ body {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 0 0 0 20px;
+        transition: padding-left .3s ease;
+        @media only screen and (max-width: 1440px) {
+            padding-left: 60px;
+            @media (max-width: 1024px) {
+                padding-left: 0;
+            }
+        }
     }
 }
 
